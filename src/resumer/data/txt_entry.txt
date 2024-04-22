@@ -1,0 +1,17 @@
+$if(<item>.values)$
+$if(<item>.meta.topbounded)$
+[$<item>.meta.title$]
+$endif$
+$for(<item>.values)$
+<0>
+<1>
+<2>
+<3>
+$if(<item>.values.items)$
+$for(<item>.values.items)$
+* $<item>.values.items$
+$endfor$
+$endif$
+<br>
+$endfor$
+$endif$

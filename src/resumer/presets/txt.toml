@@ -1,0 +1,18 @@
+[parse]
+top = ["txt_header.txt"]
+format = "txt_entry.txt"
+
+setups.qual = "base1"
+setups.pinned_qual = "le"
+
+[generate]
+outtype = "markdown"
+outext = "md"
+templateGen = "template.txt"
+
+[[generate.step]]
+input = "pandoc.out"
+rename = "resume.txt"
+
+[parse.setups.base1]
+values = ["<le>", "[[{values.title}]]", "<le>", "<le>"]

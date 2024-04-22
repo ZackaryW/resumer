@@ -24,7 +24,7 @@ dateend = "str"
 items = "list"
 
 [parse.setups.base1]
-values = ["le", "val", "le", "le"]
+values = ["<le>", "<val>", "<le>", "<le>"]
 
 [parse.setups.le]
-values = ["le", "le", "le", "le"]
+values = ["<le>", "<le>", "<le>", "<le>"]

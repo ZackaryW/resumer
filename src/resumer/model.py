@@ -71,7 +71,11 @@ class ResumerData:
         if "setups" not in meta["parse"]:
             meta["parse"]["setups"] = rootmeta["parse"]["setups"]
         else:
-            meta["parse"]["setups"].update(rootmeta["parse"]["setups"])
+            for k, v in rootmeta["parse"]["setups"].items():
+                if k in meta["parse"]["setups"]:
+                    continue
+                else:
+                    meta["parse"]["setups"][k] = v
     
             for k, v in rootmeta["parse"].items():
                 if k == "setups":
@@ -132,24 +136,29 @@ class ResumerData:
         else:
             pendingOrder = [x for x in struct if x not in builtinStructNames]
             for i, val in enumerate(parsesetup["values"]):
-                if val == "le":
+                if val == "<le>":
                     # leave empty
                     template = template.replace(f"<{i}>", "")
-                elif val == "val":
+                elif val == "<val>":
                     # normal
                     curr = pendingOrder.pop(0)
                     template = template.replace(f"<{i}>", f"$<item>.values.{curr}$")
-                elif val == "sv":
+                elif val == "<sv>":
                     # skip value
                     curr = pendingOrder.pop(0)
                     template = template.replace(f"<{i}>", "")
+                elif "{" in val:
+                    # template
+                    template = template.replace(f"<{i}>", val.replace("{", "$<item>.").replace("}", "$"))
                 else:
                     template = template.replace(f"<{i}>", f"$<item>.{val}$")
                 
 
         template = template.replace("<item>", entryItem.meta["name"])
+        ret = [x for x in template.splitlines() if x != ""]
 
-        ret = template.splitlines()
+        ret = ["\n" if x == "<br>" else x for x in ret]
+
         return ret
 
     @classmethod
