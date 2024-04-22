@@ -6,6 +6,12 @@ install via git repo
 ``` 
 pip install git+https://github.com/zackaryw/resumer.git
 ```
+# usage
+```bash
+resumer data.toml config.toml
+resumer data.toml tex
+resumer data.toml txt
+```
 
 # template syntaxes
 ```
