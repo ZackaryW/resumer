@@ -11,3 +11,8 @@ pip install git+https://github.com/zackaryw/resumer.git
 ```
 <br> will act as a line break
 ```
+
+# acknowledgements
+- [awesome-cv](https://github.com/posquit0/Awesome-CV)
+> this project made slight modifications to the cls file
+
