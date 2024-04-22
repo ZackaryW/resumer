@@ -1,0 +1,30 @@
+
+collection = ["qual","exp", "education"]
+
+[struct.exp]
+alias = "Experience"
+position = "str"
+organization = "str"
+location = "str"
+datestart = "str"
+dateend = "str"
+items = "list"
+
+[struct.qual]
+alias = "Qualification"
+title = "str"
+items = "list"
+
+[struct.education]
+degree = "str"
+school = "str"
+location = "str"
+datestart = "str"
+dateend = "str"
+items = "list"
+
+[parse.setups.base1]
+values = ["le", "val", "le", "le"]
+
+[parse.setups.le]
+values = ["le", "le", "le", "le"]

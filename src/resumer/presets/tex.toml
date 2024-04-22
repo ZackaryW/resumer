@@ -1,0 +1,21 @@
+[parse]
+top = ["tex_header.tex"]
+format = "tex_entry.tex"
+
+setups.qual = "base1"
+setups.pinned_qual = "le"
+
+footerText = "\\end{document}"
+
+[generate]
+outtype = "latex"
+templateGen = "template.tex"
+copyover = ["awesome-cv.cls"]
+
+[[generate.step]]
+cmd = "xelatex"
+args = [
+    "-interaction=nonstopmode", "pandoc.out"
+]
+input = "pandoc.pdf"
+rename = "resume.pdf"

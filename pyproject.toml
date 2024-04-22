@@ -1,0 +1,36 @@
+[project]
+name = "resumer"
+version = "2.0.1"
+description = "resume generator"
+authors = [
+    { name = "ZackaryW", email = "36378555+ZackaryW@users.noreply.github.com" }
+]
+dependencies = [
+    "toml>=0.10.2",
+    "pyyaml>=6.0.1",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[tool.setuptools.package-data]
+"resumer/data" = ["*"]
+"resumer/presets" = ["*"]
+
+[project.scripts]
+resumer = "resumer.cli:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = [
+    "pip>=24.0",
+]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/resumer"]
