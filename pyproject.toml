@@ -1,6 +1,6 @@
 [project]
 name = "resumer"
-version = "2.0.1"
+version = "3.0.0"
 description = "resume generator"
 authors = [
     { name = "ZackaryW", email = "36378555+ZackaryW@users.noreply.github.com" }
