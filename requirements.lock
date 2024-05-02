@@ -8,6 +8,10 @@
 #   with-sources: false
 
 -e file:.
+click==8.1.7
+    # via resumer
+colorama==0.4.6
+    # via click
 pyyaml==6.0.1
     # via resumer
 toml==0.10.2

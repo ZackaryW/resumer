@@ -182,7 +182,7 @@
 \newcommand*{\headerquotestyle}[1]{{\fontsize{10pt}{1.2em}\bodyfont\itshape\color{darktext} #1}}
 \newcommand*{\footerstyle}[1]{{\fontsize{9pt}{1.2em}\footerfont\scshape\color{lighttext} #1}}
 \newcommand*{\sectionstyle}[1]{{\fontsize{17pt}{1.2em}\bodyfont\bfseries\color{text}\@sectioncolor #1}}
-\newcommand*{\subsectionstyle}[1]{{\fontsize{13pt}{1.2em}\bodyfont\scshape\textcolor{text}{#1}}}
+\newcommand*{\subsectionstyle}[1]{{\fontsize{14pt}{1.2em}\bodyfont\scshape\textcolor{text}{#1}}}
 \newcommand*{\paragraphstyle}{\fontsize{10pt}{1.2em}\bodyfontlight\upshape\color{text}}
 
 % For elements of entry
@@ -197,7 +197,7 @@
 \newcommand*{\subentrypositionstyle}[1]{{\fontsize{7pt}{1.2em}\bodyfont\scshape\color{graytext} #1}}
 \newcommand*{\subentrydatestyle}[1]{{\fontsize{7pt}{1.2em}\bodyfontlight\slshape\color{graytext} #1}}
 \newcommand*{\subentrylocationstyle}[1]{{\fontsize{7pt}{1.2em}\bodyfontlight\slshape\color{awesome} #1}}
-\newcommand*{\subdescriptionstyle}[1]{{\fontsize{8pt}{1.2em}\bodyfontlight\upshape\color{text} #1}}
+\newcommand*{\subdescriptionstyle}[1]{{\fontsize{10pt}{1.2em}\bodyfontlight\upshape\color{text} #1}}
 
 % For elements of honor
 \newcommand*{\honortitlestyle}[1]{{\fontsize{9pt}{1.2em}\bodyfont\color{graytext} #1}}
@@ -740,7 +740,7 @@
 \newenvironment{cvitems}{%
   \vspace{-4.0mm}
   \begin{justify}
-  \begin{itemize}[leftmargin=2ex, nosep, noitemsep]
+  \begin{itemize}[leftmargin=4ex, nosep, noitemsep]
     \setlength{\parskip}{0pt}
     \renewcommand{\labelitemi}{\bullet}
 }{%

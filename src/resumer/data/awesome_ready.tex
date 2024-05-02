@@ -1,0 +1,189 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for CV/Resume
+%
+% This template has been downloaded from:
+% https://github.com/posquit0/Awesome-CV
+%
+% Author:
+% Claud D. Park <posquit0.bj@gmail.com>
+% http://www.posquit0.com
+%
+% Template license:
+% CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0/)
+%
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+
+
+% A4 paper size by default, use 'letterpaper' for US letter
+\documentclass[18pt, letterpaper]{awesome-cv}
+
+% Configure page margins with geometry
+\geometry{left=1.4cm, top=.8cm, right=2.2cm, bottom=1.8cm, footskip=.5cm}
+
+% Color for highlights
+% Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange
+%                 awesome-nephritis, awesome-concrete, awesome-darknight
+$if(config.color)$
+\colorlet{awesome}{awesome-$config.color$}
+$else$
+\colorlet{awesome}{awesome-emerald}
+$endif$
+
+% Set false if you don't want to highlight section with awesome color
+$ if(config.disableSectionColorHighlight)$
+$ else$
+\setbool{acvSectionColorHighlight}{true}
+$ endif$
+
+% If you would like to change the social information separator from a pipe (|) to something else
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+%-------------------------------------------------------------------------------
+%	PERSONAL INFORMATION
+%	Comment any of the lines below if they are not required
+%-------------------------------------------------------------------------------
+% Available options: circle|rectangle,edge/noedge,left/right
+% \photo[rectangle,edge,right]{./examples/profile}
+
+\name{$info.firstname$}{$info.lastname$}
+\address{$info.address$}
+\mobile{$info.phonenum$}
+\email{$info.email$}
+\github{$info.github$}
+\linkedin{$info.linkedin$}
+
+\begin{document}
+
+% Print the header with above personal information
+% Give optional argument to change alignment(C: center, L: left, R: right)
+\makecvheader[C]
+
+% Print the footer with 3 arguments(<left>, <center>, <right>)
+% Leave any of these blank if they are not needed
+\makecvfooter
+  {\today}
+  {$info.firstname$ $info.lastname$~~~·~~~Resume}
+  {\thepage}
+
+%-------------------------------------------------------------------------------
+%	Qualifications 
+%-------------------------------------------------------------------------------
+$if(qual)$
+\cvsection{Qualifications}
+\begin{cventries}
+$for(qual.pinned)$
+\begin{cvitems}
+$for(qual.pinned.items)$    
+    \item{$qual.pinned.items$}
+$endfor$
+\end{cvitems}
+\vspace{6mm}
+$endfor$
+
+$for(qual.values)$
+\cventry
+{}
+{$qual.values.title$}
+{}
+{}
+{
+$if(qual.values.items)$
+\begin{cvitems}
+$for(qual.values.items)$
+    \item{$qual.values.items$}
+$endfor$
+\end{cvitems}
+$endif$
+}
+\vspace{6mm}
+$endfor$
+\end{cventries}
+$endif$
+
+%-------------------------------------------------------------------------------
+%	Experience
+%-------------------------------------------------------------------------------
+$if(exp)$
+\cvsection{Experience}
+\begin{cventries}
+
+$for(exp.values)$
+\cventry
+{$exp.values.position$}
+{$exp.values.organization$}
+{$exp.values.location$}
+{$exp.values.datestart$ - $exp.values.dateend$} 
+{
+$if(exp.values.items)$
+\begin{cvitems}
+$for(exp.values.items)$
+    \item{$exp.values.items$}
+$endfor$
+\end{cvitems}
+$endif$
+}
+\vspace{6mm}
+$endfor$
+\end{cventries}
+$endif$
+
+%-------------------------------------------------------------------------------
+%	Education
+%-------------------------------------------------------------------------------
+$if(edu)$
+\cvsection{Education}
+\begin{cventries}
+
+$for(edu.values)$
+\cventry
+{$edu.values.degree$}
+{$edu.values.institution$}
+{$edu.values.location$}
+{$edu.values.datestart$ - $edu.values.dateend$}
+{
+$if(edu.values.items)$
+\begin{cvitems}
+$for(edu.values.items)$
+    \item{$edu.values.items$}
+$endfor$
+\end{cvitems}
+$endif$
+}
+\vspace{6mm}
+$endfor$
+\end{cventries}
+$endif$
+
+%-------------------------------------------------------------------------------
+%	Project
+%-------------------------------------------------------------------------------
+$if(project)$
+\cvsection{Project}
+\begin{cventries}
+
+
+$for(project.values)$
+\cventry
+{$project.values.name$}
+{$project.values.position$}
+{$project.values.location$}
+{$project.values.datestart$ - $project.values.dateend$}
+{
+$if(project.values.items)$
+\begin{cvitems}
+$for(project.values.items)$
+    \item{$project.values.items$}
+$endfor$
+\end{cvitems}
+$endif$
+}
+\vspace{6mm}
+$endfor$
+\end{cventries}
+$endif$
+
+\end{document}
+

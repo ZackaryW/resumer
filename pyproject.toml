@@ -8,16 +8,16 @@ authors = [
 dependencies = [
     "toml>=0.10.2",
     "pyyaml>=6.0.1",
+    "click>=8.1.7",
 ]
 readme = "README.md"
 requires-python = ">= 3.8"
 
 [tool.setuptools.package-data]
 "resumer/data" = ["*"]
-"resumer/presets" = ["*"]
 
 [project.scripts]
-resumer = "resumer.cli:main"
+resumer = "resumer.cli:cli"
 
 [build-system]
 requires = ["hatchling"]

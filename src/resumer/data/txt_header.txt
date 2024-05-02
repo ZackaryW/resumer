@@ -1,6 +1,0 @@
-$info.firstname$ $info.lastname$
-$info.address$
-$info.phonenum$
-$info.email$
-$info.github$
-$info.linkedin$

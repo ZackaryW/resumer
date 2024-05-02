@@ -7,10 +7,9 @@ install via git repo
 pip install git+https://github.com/zackaryw/resumer.git
 ```
 # usage
+CLI
 ```bash
-resumer data.toml config.toml
-resumer data.toml tex
-resumer data.toml txt
+resumer [profile name]
 ```
 
 # example data toml
@@ -67,7 +66,7 @@ items =[
     "Driver's License",
 ]
 
-[education]
+[[edu]]
 degree =XXXXXXXXXXXXX
 school =XXXXXXXXXXXXX
 datestart =XXXXXXXXXXXXX

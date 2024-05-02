@@ -1,27 +1,24 @@
+import click
 import os
 import sys
-import argparse
-sys.path.append(os.path.dirname(__file__))
 
-from resumer.generator import Generator
-from resumer.model import ResumerData
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+from resumer.profiles import get_profile
 
-# Setting up the argument parser
-parser = argparse.ArgumentParser(description='Generate resumes based on provided configuration.')
-parser.add_argument('data', type=str, help='Path to the data toml')
-parser.add_argument('config', type=str, help='Path to the config toml')
+@click.command()
+@click.option("--copy-temp-folder", "-ct", default=False, is_flag=True)
+@click.option("--profile", "-p", help="profile to use")
+def cli(copy_temp_folder, profile):
+    if not profile:
+        click.echo("no profile specified")
+        return
+    
+    try:
+        get_profile(profile)(copy_temp_folder)
+    except Exception as e:
+        click.echo(e)
+        click.echo("something went wrong, check the output above")
 
-def main():
-    args = parser.parse_args()
 
-    # Load the data using provided arguments
-    data = ResumerData.load(args.data, args.config)
-
-    # Create a generator instance with the loaded data
-    g = Generator(data)
-
-    # Run the generator
-    g.run()
-
-if __name__ == '__main__':
-    main()
+if __name__ == "__main__":
+    cli()
