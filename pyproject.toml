@@ -16,7 +16,7 @@ readme = "README.md"
 requires-python = ">= 3.8"
 
 [tool.setuptools.package-data]
-"resumer/data" = ["*"]
+"resumer/files" = ["*"]
 
 [project.scripts]
 resumer = "resumer.cli:cli"
