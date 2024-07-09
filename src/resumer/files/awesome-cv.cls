@@ -662,7 +662,7 @@
 % Define an entry of cv information
 % Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
 \newcommand*{\cventry}[5]{%
-  \vspace{-2.0mm}
+  \vspace{-1.0mm}
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
@@ -801,3 +801,49 @@
       \letterenclosurestyle{\@letterenclname: \@letterenclosure} \\
     }
 }
+
+%ANCHOR my impl
+\newcommand*{\cvqual}[2]{%
+  \vspace{1mm}
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth}}
+    \entrytitlestyle{#1} \\ % Title in a specific style
+    \multicolumn{1}{L{\textwidth}}{\textbf{\descriptionstyle{#2}}} \\ % Description
+  \end{tabular*}
+  \vspace{1mm}
+}
+
+\usepackage{xparse}
+
+\ExplSyntaxOn
+\NewDocumentCommand{\cvcomp}{ m }
+ {
+  \zackary_cvcomp:n { #1 }
+ }
+
+\seq_new:N \l_zackary_item_seq
+\int_new:N \l_zackary_item_int
+
+\cs_new_protected:Nn \zackary_cvcomp:n
+ {
+  \seq_set_from_clist:Nn \l_zackary_item_seq { #1 }
+  \int_zero:N \l_zackary_item_int
+  \noindent % Ensure the table starts at the left margin
+  \begin{center}
+    \begin{tabular}{@{} >{\centering\arraybackslash}p{0.45\textwidth} @{} >{\centering\arraybackslash}p{0.45\textwidth} @{}}
+    \seq_map_inline:Nn \l_zackary_item_seq
+    {
+     \int_incr:N \l_zackary_item_int
+     \int_if_odd:nTF { \l_zackary_item_int }
+      {
+       ##1 & % odd item, print item and &
+      }
+      {
+       ##1 \\ % even item, print item and end row
+      }
+    }
+    \end{tabular}
+  \end{center}
+ }
+\ExplSyntaxOff

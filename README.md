@@ -1,87 +1,30 @@
 # resumer
- a resume generator for personal use
+a resume generator for personal use, but can be easily extended
+
+The resume template is derived from the awesome-cv project and incorporates features from templates valued at over $1000.
+
+some advanced features are supported but not documented, create an issue if you need them
+
+# required
+xelatex, pandoc and python>=3.8
 
 # install
-install via git repo
+I highly recommend install all pre-requisites using [scoop](https://scoop.sh/)
+standard scoop install commands
+```
+scoop install git
+scoop bucket add extras
+scoop install pandoc
+scoop install xelatex
+```
+
+then install via git repo
 ``` 
 pip install git+https://github.com/zackaryw/resumer.git
 ```
-# usage
-CLI
-```bash
-resumer [profile name]
+
+# Cli
+to simply generate based on the two profiles available in examples, use
 ```
-
-# example data toml
-default profiles
-```toml
-
-[info]
-address =XXXXXXXXXXXXX
-city =XXXXXXXXXXXXX
-country =XXXXXXXXXXXXX
-email =XXXXXXXXXXXXX
-firstname =XXXXXXXXXXXXX
-github =XXXXXXXXXXXXX
-lastname =XXXXXXXXXXXXX
-linkedin =XXXXXXXXXXXXX
-middleinitial =XXXXXXXXXXXXX
-middlename =XXXXXXXXXXXXX
-phonenum =XXXXXXXXXXXXX
-postalcode =XXXXXXXXXXXXX
-province =XXXXXXXXXXXXX
-
-
-[[exp]]
-position =XXXXXXXXXXXXX
-organization =XXXXXXXXXXXXX
-location =XXXXXXXXXXXXX
-datestart=XXXXXXXXXXXXX
-dateend =XXXXXXXXXXXXX
-
-# detail points
-items=[
-    XXXXXXXXXXXXXXXXXXX,
-    XXXXXXXXXXXXXXXXXX 
-]
-    
-[[exp]]
-position =XXXXXXXXXXXXX
-organization =XXXXXXXXXXXXX
-location =XXXXXXXXXXXXX
-datestart =XXXXXXXXXXXXX
-dateend =XXXXXXXXXXXXX
-items = []
-
-
-[[qual]]
-pinned =true # if it is pinned, it will display without a title and at the top
-items =[]
-
-
-[[qual]]
-title ="Certifications"
-items =[
-    "First aid attendent",
-    "Driver's License",
-]
-
-[[edu]]
-degree =XXXXXXXXXXXXX
-school =XXXXXXXXXXXXX
-datestart =XXXXXXXXXXXXX
-dateend =XXXXXXXXXXXXX
-location =XXXXXXXXXXXXX
-items =[]
-
+resumer profgen [txt_1/tex_1] {path of your data.toml}
 ```
-
-# template syntaxes
-```
-<br> will act as a line break
-```
-
-# acknowledgements
-- [awesome-cv](https://github.com/posquit0/Awesome-CV)
-> this project made slight modifications to the cls file
-

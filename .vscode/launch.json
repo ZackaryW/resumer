@@ -1,0 +1,32 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "profile txt_1",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/resumer/cli.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--kp", "zzz", "--debug", "profgen", "txt_1", "../data.toml", "--dfile"
+            ],
+            "justMyCode": false,
+            "cwd": "${workspaceFolder}/examples/txt_1"
+        },
+        {
+            "name": "profile tex_1",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/resumer/cli.py",
+            "console": "integratedTerminal",
+            "args": [
+                "--kp", "zzz", "--debug", "profgen", "tex_1", "../data.toml", "--dfile"
+            ],
+            "justMyCode": false,
+            "cwd": "${workspaceFolder}/examples/tex_1"
+        }
+    ]
+}
