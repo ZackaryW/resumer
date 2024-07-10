@@ -825,22 +825,28 @@
 \seq_new:N \l_zackary_item_seq
 \int_new:N \l_zackary_item_int
 
+\newcommand*{\cvcompstyle}[1]{{\fontsize{8pt}{0.2em}\bodyfont\mdseries\color{graytext} #1}}
+
+\seq_new:N \l_zackary_item_seq
+\int_new:N \l_zackary_item_int
+
 \cs_new_protected:Nn \zackary_cvcomp:n
  {
   \seq_set_from_clist:Nn \l_zackary_item_seq { #1 }
   \int_zero:N \l_zackary_item_int
-  \noindent % Ensure the table starts at the left margin
+  \noindent
   \begin{center}
+    \renewcommand{\arraystretch}{0.8} % Adjust the space between rows
     \begin{tabular}{@{} >{\centering\arraybackslash}p{0.45\textwidth} @{} >{\centering\arraybackslash}p{0.45\textwidth} @{}}
     \seq_map_inline:Nn \l_zackary_item_seq
     {
      \int_incr:N \l_zackary_item_int
      \int_if_odd:nTF { \l_zackary_item_int }
       {
-       ##1 & % odd item, print item and &
+       \cvcompstyle{##1} & % Apply your custom style and print item
       }
       {
-       ##1 \\ % even item, print item and end row
+       \cvcompstyle{##1} \\ % Apply your custom style and end row
       }
     }
     \end{tabular}
