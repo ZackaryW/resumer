@@ -76,21 +76,18 @@ $endif$
 
 %-----------------------------Summary-----------------------------------
 $if(info.summary)$
-\begin{center}
-\cvparagraph{$info.summary$}
-\end{center}
+
+\cvparagraph{
+  \centering  
+$info.summary$ \\
+$for(core.items)$ \sbullet $core.items$ $endfor$
+
+}
+
 $endif$
 
 
 %----------------------------Core competencies----------------------------------------
-$if(core)$
-\cvcomp{
-  $for(core.items)$
-    $core.items$,
-  $endfor$
-}
-$endif$
-
 
 %----------------------------Qualifications----------------------------------------
 \cvsection{Qualifications}
@@ -98,7 +95,7 @@ $if(topqual)$
 \begin{cventries}
 \begin{cvitems}
 $for(topqual.items)$    
-    \item{\textbf{$topqual.items$}}
+    \item{$topqual.items$}
 $endfor$
 \end{cvitems}
 \end{cventries}

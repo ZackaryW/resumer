@@ -135,10 +135,10 @@
 \definecolor{blue}{HTML}{6CE0F1}
 % Text colors
 \definecolor{darktext}{HTML}{414141}
-\colorlet{text}{darkgray}
-\colorlet{graytext}{gray}
-\colorlet{lighttext}{lightgray}
-\colorlet{sectiondivider}{gray}
+\colorlet{text}{black}
+\colorlet{graytext}{darkgray}
+\colorlet{lighttext}{black}
+\colorlet{sectiondivider}{darkgray}
 % Awesome colors
 \definecolor{awesome-emerald}{HTML}{00A388}
 \definecolor{awesome-skyblue}{HTML}{0395DE}
@@ -809,7 +809,7 @@
   \setlength{\extrarowheight}{0pt}
   \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth}}
     \entrytitlestyle{#1} \\ % Title in a specific style
-    \multicolumn{1}{L{\textwidth}}{\textbf{\descriptionstyle{#2}}} \\ % Description
+    \multicolumn{1}{L{\textwidth}}{\descriptionstyle{#2}} \\ % Description
   \end{tabular*}
   \vspace{1mm}
 }
@@ -853,3 +853,8 @@
   \end{center}
  }
 \ExplSyntaxOff
+
+%
+\usepackage{graphicx,scalerel}
+\newcommand\sbullet[1][.5]{\mathbin{\vcenter{\hbox{%
+  \scalebox{#1}{$\bullet$}}}}}
